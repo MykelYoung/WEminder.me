@@ -3,256 +3,325 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WEminder | Smart Reminders for Everyday Life</title>
-  <meta name="description" content="WEminder is the patented location-based reminder and shopping list app that helps you remember what you need, when and where you need it." />
+  <title>WEminder | Never Forget the Things You Need</title>
+  <meta name="description" content="WEminder captures what you need, organizes it for you, and reminds you at the right place and time." />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta name="theme-color" content="#007bff" />
 
-  <!-- Open Graph / LinkedIn / Messages preview -->
-  <meta property="og:title" content="WEminder | Smart Reminders for Everyday Life" />
-  <meta property="og:description" content="Never forget the things you need. WEminder organizes your lists and reminds you where and when to act." />
-  <meta property="og:image" content="https://weminder.me/brand-coupons.png" />
-  <meta property="og:url" content="https://weminder.me/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WEminder | Smart Reminders for Everyday Life" />
-  <meta name="twitter:description" content="Smart reminders that trigger where and when they matter most." />
-  <meta name="twitter:image" content="https://weminder.me/brand-coupons.png" />
-  <meta name="twitter:creator" content="@WEminderApp" />
-
+  <!-- Basic styles, light mode only for stability -->
   <style>
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #333;
-      background-color: #fff;
+    :root {
+      --bg-light: #ffffff;
+      --bg-section: #f9fafc;
+      --text-main: #222;
+      --text-body: #555;
+      --border-subtle: #eee;
+      --blue: #007bff;
     }
 
-    header {
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top nav */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-mark {
+      background-color: var(--blue);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1;
+      padding: 6px 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 16px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    header.hero {
       text-align: center;
       padding: 60px 20px 40px;
       background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    /* TEMP logo box (until you add a real weminder logo file at repo root as weminder-logo.png) */
-    .logo-fallback {
-      height: 80px;
-      width: 80px;
-      margin: 0 auto 20px;
-      border-radius: 16px;
-      background: #007bff;
-      color: #fff;
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.03em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    }
-
-    h1 {
-      font-size: 2.4em;
+    .hero h1 {
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 10px;
-      color: #222;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
     }
 
-    h2 {
-      font-size: 1.6em;
-      font-weight: 500;
+    .hero h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
       color: #444;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin: 0 auto 20px;
       max-width: 700px;
-      color: #555;
+      margin: 0 auto 24px;
+      line-height: 1.4;
     }
 
     .cta-button {
       display: inline-block;
-      background-color: #007bff;
+      background-color: var(--blue);
       color: #fff;
-      padding: 14px 28px;
+      padding: 14px 24px;
       border-radius: 6px;
-      text-decoration: none;
-      font-size: 1.1em;
+      font-size: 1rem;
       font-weight: 600;
-      transition: background-color 0.2s ease;
+      text-decoration: none;
+      line-height: 1.2;
     }
+
     .cta-button:hover {
       background-color: #0056b3;
     }
 
-    section {
+    section.section-block {
       padding: 60px 20px;
       text-align: center;
-      border-top: 1px solid #eee;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    section.alt {
-      background-color: #f9fafc;
+    section.section-alt {
+      background-color: var(--bg-section);
     }
 
+    section.section-block h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
+
+    section.section-block p.lead {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Feature grid */
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .feature {
-      max-width: 260px;
+    .feature-card {
+      width: 260px;
       text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text-body);
     }
 
-    .feature img {
+    .feature-card h3 {
+      color: var(--text-main);
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 12px 0 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-card p {
+      margin: 0 auto;
+      max-width: 260px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    .feature-card a.feature-img-link {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .feature-card img {
       width: 80px;
       height: 80px;
-      object-fit: contain;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #ddd;
       background-color: #fff;
-      margin-bottom: 15px;
+      object-fit: contain;
     }
 
-    footer {
+    /* Big promo image block */
+    .promo-image-wrap {
+      margin-top: 24px;
+    }
+
+    .promo-image-wrap img {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+
+    footer.site-footer {
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px 40px;
       font-size: 14px;
       color: #555;
       background-color: #f6f8fb;
       border-top: 1px solid #ddd;
+      line-height: 1.4;
     }
 
-    footer a {
-      color: #007bff;
+    footer.site-footer a {
+      color: var(--blue);
       text-decoration: none;
+      font-weight: 500;
     }
 
-    footer a:hover {
+    footer.site-footer a:hover {
       text-decoration: underline;
     }
 
-    /* --- DARK MODE AUTO --- */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
       }
-
-      header {
-        background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
-      }
-
-      h1,
-      h2,
-      p {
-        color: #e0e0e0;
-      }
-
-      section {
-        background-color: #1a1a1a;
-        border-top: 1px solid #333;
-      }
-
-      section.alt {
-        background-color: #181818;
-      }
-
-      .feature img {
-        border: 1px solid #444;
-        background-color: #1f1f1f;
-      }
-
-      footer {
-        background-color: #1c1c1c;
-        color: #ccc;
-        border-top: 1px solid #333;
-      }
-
-      footer a {
-        color: #4da3ff;
-      }
-
-      .cta-button {
-        background-color: #2196f3;
-        color: #fff;
-      }
-
-      .cta-button:hover {
-        background-color: #1976d2;
-      }
-
-      .logo-fallback {
-        background: #2196f3;
-        color: #fff;
+      .hero h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <!-- If you add a real logo file later, just replace this div with:
-         <img src="weminder-logo.png" alt="WEminder Logo" />
-    -->
-    <div class="logo-fallback">WE</div>
 
+  <!-- NAV -->
+  <nav class="nav-bar">
+    <div class="brand">
+      <div class="brand-mark">WE</div>
+      <div>WEminder</div>
+    </div>
+    <div class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#for-brands">Brands</a>
+      <a href="#investors">Investors</a>
+      <a href="mailto:info@weminder.me">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
     <h1>Never Forget the Things You Need</h1>
-    <h2>Smart reminders that trigger where and when they matter most.</h2>
-    <a href="#learn-more" class="cta-button">Learn More</a>
+    <h2>WEminder captures what you say you need, organizes it, and reminds you at the right place and time — so you don’t miss milk, dog treats, batteries, anything.</h2>
+    <a href="#investors" class="cta-button">Learn More</a>
   </header>
 
-  <section id="learn-more">
+  <!-- HOW IT WORKS -->
+  <section class="section-block" id="how-it-works">
     <h2>How It Works</h2>
-    <p>WEminder listens to your everyday conversations and helps you capture needs, organize them into shared lists, and remind you when you’re near a relevant store — so you never forget the things that matter most.</p>
+    <p class="lead">
+      WEminder listens to everyday life — “We’re out of paper towels,” “We need AAA batteries,” “We should grab more dog treats” — and turns that into organized, shareable lists. Then it reminds you when you’re near a place that actually sells the thing you need.
+    </p>
 
     <div class="features">
-      <div class="feature">
-        <img src="calendar-ai.png" alt="Voice capture and AI organization" />
+      <!-- Speak Naturally -->
+      <div class="feature-card">
+        <a class="feature-img-link" href="calendar-ai.png" target="_blank" rel="noopener">
+          <img src="calendar-ai.png" alt="Voice capture and AI organization" />
+        </a>
         <h3>Speak Naturally</h3>
-        <p>Just say what you need — “We’re out of milk” — and WEminder adds it automatically to your list.</p>
+        <p>Just say it in normal conversation — “We’re out of milk.” WEminder captures it and adds it for you.</p>
       </div>
 
-      <div class="feature">
-        <img src="proximity-tech.png" alt="Proximity-based alerting" />
+      <!-- Smart Location Alerts -->
+      <div class="feature-card">
+        <a class="feature-img-link" href="proximity-tech.png" target="_blank" rel="noopener">
+          <img src="proximity-tech.png" alt="Proximity-based smart reminders" />
+        </a>
         <h3>Smart Location Alerts</h3>
-        <p>Get notified when you’re near a store where your item is available — never miss a chance to grab it.</p>
+        <p>When you’re near a store that has what you need, you get a nudge. Right place, right moment.</p>
       </div>
 
-      <div class="feature">
-        <img src="p2p-sharing.png" alt="Shared lists between people" />
+      <!-- Shared Lists -->
+      <div class="feature-card">
+        <a class="feature-img-link" href="p2p-sharing.png" target="_blank" rel="noopener">
+          <img src="p2p-sharing.png" alt="Shared lists and syncing" />
+        </a>
         <h3>Shared Lists</h3>
-        <p>Collaborate with family or friends — shared lists update in real time, keeping everyone on the same page.</p>
+        <p>Your family / partner / roommate stays synced. Everyone sees what’s needed in real time.</p>
       </div>
     </div>
   </section>
 
-  <section class="alt">
+  <!-- BRANDS / SHOPPERS -->
+  <section class="section-block section-alt" id="for-brands">
     <h2>For Shoppers, Families &amp; Brands</h2>
-    <p>WEminder connects everyday consumers with brands, offers, and deals that match their real-time needs — creating a smarter, more sustainable shopping ecosystem for everyone.</p>
-    <img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" style="max-width:320px;width:100%;height:auto;border-radius:16px;border:1px solid #ddd;background:#fff;margin-top:20px;" />
+    <p class="lead">
+      WEminder connects real shopper intent (“I need dog treats”) with real offers, in real time. That means better trips for families and smarter targeting for brands.
+    </p>
+
+    <div class="promo-image-wrap">
+      <a href="brand-coupons.png" target="_blank" rel="noopener">
+        <img src="brand-coupons.png" alt="Brand coupons and timely offers in WEminder" />
+      </a>
+    </div>
   </section>
 
-  <section>
+  <!-- INVESTORS -->
+  <section class="section-block" id="investors">
     <h2>Investors &amp; Partners</h2>
-    <p>WEminder’s patented location-based reminder system is now entering its next growth phase. We’re seeking strategic partners and investors to help scale the platform and bring WEminder to households nationwide.</p>
+    <p class="lead">
+      WEminder’s patented location-based reminder system is entering its next growth phase. We’re looking for strategic partners and early investors who understand shopper behavior, retail, CPG, or adtech.
+    </p>
+
     <a href="mailto:info@weminder.me" class="cta-button">Contact Us</a>
   </section>
 
-  <footer>
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <p>© 2025 WEminder. All rights reserved.</p>
     <p><a href="mailto:info@weminder.me">info@weminder.me</a></p>
   </footer>
+
 </body>
 </html>
