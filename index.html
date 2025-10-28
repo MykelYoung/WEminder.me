@@ -7,14 +7,13 @@
   <meta name="description" content="WEminder is the patented location-based reminder and shopping list app that helps you remember what you need, when and where you need it." />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta name="theme-color" content="#007bff" />
 
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <!-- Open Graph / LinkedIn / Messages preview -->
   <meta property="og:title" content="WEminder | Smart Reminders for Everyday Life" />
   <meta property="og:description" content="Never forget the things you need. WEminder organizes your lists and reminds you where and when to act." />
-  <meta property="og:image" content="https://weminder.me/assets/weminder-social-preview.png" />
+  <meta property="og:image" content="https://weminder.me/brand-coupons.png" />
   <meta property="og:url" content="https://weminder.me/" />
   <meta property="og:type" content="website" />
 
@@ -22,48 +21,65 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="WEminder | Smart Reminders for Everyday Life" />
   <meta name="twitter:description" content="Smart reminders that trigger where and when they matter most." />
-  <meta name="twitter:image" content="https://weminder.me/assets/weminder-social-preview.png" />
+  <meta name="twitter:image" content="https://weminder.me/brand-coupons.png" />
   <meta name="twitter:creator" content="@WEminderApp" />
 
   <style>
-    /* FORCE DARK MODE FOR TEST */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      color: #333;
+      background-color: #fff;
     }
+
     header {
       text-align: center;
       padding: 60px 20px 40px;
-      background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
+      background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
     }
-    header img {
+
+    /* TEMP logo box (until you add a real weminder logo file at repo root as weminder-logo.png) */
+    .logo-fallback {
       height: 80px;
-      margin-bottom: 20px;
+      width: 80px;
+      margin: 0 auto 20px;
+      border-radius: 16px;
+      background: #007bff;
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
+
     h1 {
       font-size: 2.4em;
       font-weight: 700;
       margin-bottom: 10px;
-      color: #e0e0e0;
+      color: #222;
     }
+
     h2 {
       font-size: 1.6em;
       font-weight: 500;
-      color: #ccc;
+      color: #444;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 1.1em;
       line-height: 1.6;
       margin: 0 auto 20px;
       max-width: 700px;
-      color: #bbb;
+      color: #555;
     }
+
     .cta-button {
       display: inline-block;
-      background-color: #2196f3;
+      background-color: #007bff;
       color: #fff;
       padding: 14px 28px;
       border-radius: 6px;
@@ -73,17 +89,19 @@
       transition: background-color 0.2s ease;
     }
     .cta-button:hover {
-      background-color: #1976d2;
+      background-color: #0056b3;
     }
+
     section {
       padding: 60px 20px;
       text-align: center;
-      border-top: 1px solid #333;
-      background-color: #1a1a1a;
+      border-top: 1px solid #eee;
     }
+
     section.alt {
-      background-color: #181818;
+      background-color: #f9fafc;
     }
+
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -91,48 +109,104 @@
       gap: 40px;
       margin-top: 40px;
     }
+
     .feature {
       max-width: 260px;
+      text-align: center;
     }
-    .feature-icon {
+
+    .feature img {
       width: 80px;
       height: 80px;
-      margin: 0 auto 15px;
-      border-radius: 16px;
-      background-color: #2a2a2a;
-      border: 1px solid #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: 600;
-      color: #4da3ff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      margin-bottom: 15px;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      color: #ccc;
-      background-color: #1c1c1c;
-      border-top: 1px solid #333;
+      color: #555;
+      background-color: #f6f8fb;
+      border-top: 1px solid #ddd;
     }
+
     footer a {
-      color: #4da3ff;
+      color: #007bff;
       text-decoration: none;
     }
+
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* --- DARK MODE AUTO --- */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      header {
+        background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
+      }
+
+      h1,
+      h2,
+      p {
+        color: #e0e0e0;
+      }
+
+      section {
+        background-color: #1a1a1a;
+        border-top: 1px solid #333;
+      }
+
+      section.alt {
+        background-color: #181818;
+      }
+
+      .feature img {
+        border: 1px solid #444;
+        background-color: #1f1f1f;
+      }
+
+      footer {
+        background-color: #1c1c1c;
+        color: #ccc;
+        border-top: 1px solid #333;
+      }
+
+      footer a {
+        color: #4da3ff;
+      }
+
+      .cta-button {
+        background-color: #2196f3;
+        color: #fff;
+      }
+
+      .cta-button:hover {
+        background-color: #1976d2;
+      }
+
+      .logo-fallback {
+        background: #2196f3;
+        color: #fff;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <!-- TEMP fallback if weminder-logo.png not loading -->
-    <div style="height:80px; width:80px; margin:0 auto 20px; border-radius:16px; background:#2a2a2a; border:1px solid #444; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:600; color:#4da3ff; font-family:system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;">
-      WE
-    </div>
+    <!-- If you add a real logo file later, just replace this div with:
+         <img src="weminder-logo.png" alt="WEminder Logo" />
+    -->
+    <div class="logo-fallback">WE</div>
 
     <h1>Never Forget the Things You Need</h1>
     <h2>Smart reminders that trigger where and when they matter most.</h2>
@@ -145,17 +219,19 @@
 
     <div class="features">
       <div class="feature">
-        <div class="feature-icon">🎙</div>
+        <img src="calendar-ai.png" alt="Voice capture and AI organization" />
         <h3>Speak Naturally</h3>
         <p>Just say what you need — “We’re out of milk” — and WEminder adds it automatically to your list.</p>
       </div>
+
       <div class="feature">
-        <div class="feature-icon">📍</div>
+        <img src="proximity-tech.png" alt="Proximity-based alerting" />
         <h3>Smart Location Alerts</h3>
         <p>Get notified when you’re near a store where your item is available — never miss a chance to grab it.</p>
       </div>
+
       <div class="feature">
-        <div class="feature-icon">👨‍👩‍👧</div>
+        <img src="p2p-sharing.png" alt="Shared lists between people" />
         <h3>Shared Lists</h3>
         <p>Collaborate with family or friends — shared lists update in real time, keeping everyone on the same page.</p>
       </div>
@@ -165,6 +241,7 @@
   <section class="alt">
     <h2>For Shoppers, Families &amp; Brands</h2>
     <p>WEminder connects everyday consumers with brands, offers, and deals that match their real-time needs — creating a smarter, more sustainable shopping ecosystem for everyone.</p>
+    <img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" style="max-width:320px;width:100%;height:auto;border-radius:16px;border:1px solid #ddd;background:#fff;margin-top:20px;" />
   </section>
 
   <section>
