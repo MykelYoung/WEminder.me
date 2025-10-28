@@ -1,586 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WEminder – You Won’t Forget</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <meta name="description" content="WEminder is a patented, location-aware reminder platform that works with Apple and Google to remind you what you need, exactly where you can buy it." />
-  <meta name="theme-color" content="#0a0b0f" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WEminder | Smart Reminders for Everyday Life</title>
+  <meta name="description" content="WEminder is the patented location-based reminder and shopping list app that helps you remember what you need, when and where you need it." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#007bff" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:title" content="WEminder | Smart Reminders for Everyday Life" />
+  <meta property="og:description" content="Never forget the things you need. WEminder organizes your lists and reminds you where and when to act." />
+  <meta property="og:image" content="https://weminder.me/assets/weminder-social-preview.png" />
+  <meta property="og:url" content="https://weminder.me/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WEminder | Smart Reminders for Everyday Life" />
+  <meta name="twitter:description" content="Smart reminders that trigger where and when they matter most." />
+  <meta name="twitter:image" content="https://weminder.me/assets/weminder-social-preview.png" />
+  <meta name="twitter:creator" content="@WEminderApp" />
+
   <style>
-    :root {
-      --bg-main:#0a0b0f;
-      --bg-grad:#1a1d2b;
-      --card:#151826;
-      --line:#2a2f45;
-      --text:#f4f6ff;
-      --muted:#a5aec9;
-      --accent:#7aa5ff;
-      --cta-bg:#00d28f;
-      --cta-bg-hover:#00a973;
-      --overlay-bg:rgba(0,0,0,.8);
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #333;
+      background-color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #222;
+    }
+    h2 {
+      font-size: 1.6em;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin: 0 auto 20px;
+      max-width: 700px;
+      color: #555;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+    section:nth-child(even) {
+      background-color: #f9fafc;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .feature {
+      max-width: 260px;
+    }
+    .feature img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+      background-color: #f6f8fb;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      background:
-        radial-gradient(800px 500px at 80% 0%, rgba(64,106,255,.28) 0%, rgba(0,0,0,0) 70%),
-        radial-gradient(600px 400px at 20% 20%, rgba(0,210,143,.18) 0%, rgba(0,0,0,0) 70%),
-        linear-gradient(160deg,var(--bg-main) 0%,var(--bg-grad) 100%);
-      color:var(--text);
-      font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased;
-    }
-
-    a{text-decoration:none;color:var(--accent)}
-    img{max-width:100%;height:auto;display:block;border-radius:12px;cursor:default}
-
-    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-
-    /* ============= NAV BAR (NEW) ============= */
-    nav.site-nav{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1000;
-      background:rgba(10,11,15,.6);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);
-      font-size:.9rem;
-    }
-    .nav-inner{
-      max-width:1200px;
-      margin:0 auto;
-      padding:14px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      font-weight:600;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      line-height:1.2;
-    }
-    .brand .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--cta-bg);
-      box-shadow:0 0 8px var(--cta-bg);
-    }
-    .nav-links{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-    .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:500;
-      border:1px solid transparent;
-      border-radius:999px;
-      padding:6px 10px;
-      line-height:1.2;
-    }
-    .nav-links a:hover{
-      border-color:var(--line);
-      background:rgba(21,24,38,.4);
-    }
-
-    /* push the hero down so it doesn't hide under fixed nav */
-    header{
-      padding:112px 0 48px; /* was 64px top, now 112px to make room for nav */
-      border-bottom:1px solid var(--line);
-    }
-
-    /* ============= HERO ============= */
-    .hero{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,480px);
-      gap:32px;
-      align-items:center;
-    }
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-    }
-
-    .kicker{
-      font-size:12px;
-      font-weight:600;
-      letter-spacing:.2em;
-      text-transform:uppercase;
-      color:var(--accent);
-      margin-bottom:10px;
-    }
-
-    h1{
-      font-size:clamp(1.9rem,2.2vw,2.8rem);
-      line-height:1.1;
-      font-weight:600;
-      color:var(--text);
-      margin-bottom:16px;
-    }
-
-    .lead{
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.5;
-      margin-bottom:24px;
-      max-width:550px;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:20px;
-    }
-
-    .cta-btn{
-      background:var(--cta-bg);
-      color:#001c12;
-      border-radius:10px;
-      padding:12px 16px;
-      font-weight:600;
-      box-shadow:0 16px 32px rgba(0,210,143,.28);
-      font-size:.95rem;
-    }
-    .cta-btn:hover{background:var(--cta-bg-hover)}
-
-    .pill-btn{
-      display:inline-block;
-      border:1px solid var(--line);
-      color:var(--text);
-      background:rgba(21,24,38,.4);
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:.9rem;
-      font-weight:500;
-    }
-
-    .legal-hint{
-      font-size:.7rem;
-      color:var(--muted);
-      max-width:520px;
-    }
-
-    .visual-card{
-      background:rgba(21,24,38,.6);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:0 30px 80px rgba(0,0,0,.8);
-      overflow:hidden;
-      display:grid;
-      gap:0;
-    }
-    .visual-top{
-      padding:16px 16px 8px;
-      border-bottom:1px solid var(--line);
-      background:radial-gradient(circle at 0% 0%, rgba(122,165,255,.15) 0%, rgba(0,0,0,0) 70%);
-    }
-    .visual-eyebrow{
-      font-size:.7rem;
-      font-weight:600;
-      color:var(--accent);
-      letter-spacing:.15em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
-    .visual-headline{
-      color:var(--text);
-      font-size:1rem;
-      font-weight:600;
-      line-height:1.4;
-      margin-bottom:8px;
-    }
-    .visual-copy{
-      color:var(--muted);
-      font-size:.8rem;
-      line-height:1.4;
-    }
-    .visual-image{
-      padding:16px;
-      background:radial-gradient(circle at 80% 20%, rgba(0,210,143,.12) 0%, rgba(0,0,0,0) 70%);
-      border-top:1px solid var(--line);
-    }
-
-    /* ============= SECTIONS ============= */
-    section{
-      padding:48px 0;
-      border-bottom:1px solid var(--line);
-    }
-
-    h2{
-      font-size:1.4rem;
-      font-weight:600;
-      margin-bottom:20px;
-      color:var(--text);
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:20px;
-    }
-    @media(max-width:900px){
-      .steps{grid-template-columns:1fr}
-    }
-
-    .step-card{
-      background:rgba(21,24,38,.4);
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:16px 18px;
-      box-shadow:0 24px 60px rgba(0,0,0,.6);
-      display:grid;
-      gap:12px;
-    }
-
-    .step-head{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:600;
-      color:var(--text);
-    }
-
-    .step-num{
-      background:#1e233a;
-      border:1px solid #3a405f;
-      border-radius:8px;
-      font-size:.7rem;
-      font-weight:600;
-      padding:4px 8px;
-      color:#cfd8ff;
-    }
-
-    .step-copy{
-      color:var(--muted);
-      font-size:.9rem;
-      line-height:1.5;
-    }
-
-    .step-image{
-      border:1px solid var(--line);
-      background:#0f111a;
-      border-radius:12px;
-      padding:10px;
-      box-shadow:0 16px 40px rgba(0,0,0,.8);
-      cursor:zoom-in; /* NEW: visually hint that you can click */
-    }
-
-    .step-label{
-      font-size:.7rem;
-      color:var(--muted);
-      text-align:center;
-      margin-top:6px;
-    }
-
-    .investor-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:20px;
-      margin-bottom:24px;
-    }
-    @media(max-width:900px){
-      .investor-grid{grid-template-columns:1fr}
-    }
-
-    .invest-card{
-      background:rgba(21,24,38,.4);
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:16px 18px;
-      box-shadow:0 24px 60px rgba(0,0,0,.6);
-    }
-
-    .invest-card h3{
-      margin:0 0 8px;
-      font-size:1rem;
-      color:var(--text);
-      font-weight:600;
-    }
-
-    .invest-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:.9rem;
-      line-height:1.5;
-    }
-
-    .cta-row-bottom{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:8px;
-    }
-
-    footer{
-      text-align:center;
-      color:var(--muted);
-      font-size:.75rem;
-      padding:32px 20px 48px;
-    }
-    footer a{color:var(--accent);text-decoration:none}
-
-    /* ============= LIGHTBOX (NEW) ============= */
-    #lightboxOverlay{
-      position:fixed;
-      z-index:2000;
-      left:0;top:0;right:0;bottom:0;
-      background:var(--overlay-bg);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-    #lightboxOverlay img{
-      max-width:90vw;
-      max-height:90vh;
-      border-radius:16px;
-      box-shadow:0 40px 120px rgba(0,0,0,.9);
-      border:1px solid var(--line);
-      background:#000;
-    }
-    #lightboxOverlay .hint{
-      color:var(--muted);
-      font-size:.7rem;
-      margin-top:12px;
-      text-align:center;
+    /* --- DARK MODE --- */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      header {
+        background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
+      }
+      h1, h2, p {
+        color: #e0e0e0;
+      }
+      section {
+        background-color: #1a1a1a;
+        border-top: 1px solid #333;
+      }
+      section:nth-child(even) {
+        background-color: #181818;
+      }
+      footer {
+        background-color: #1c1c1c;
+        color: #ccc;
+        border-top: 1px solid #333;
+      }
+      footer a {
+        color: #4da3ff;
+      }
+      .cta-button {
+        background-color: #2196f3;
+        color: #fff;
+      }
+      .cta-button:hover {
+        background-color: #1976d2;
+      }
     }
   </style>
 </head>
+
 <body>
-
-  <!-- NAV BAR (NEW) -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="dot"></div>
-        <div>WEminder</div>
-      </div>
-      <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#investors">Investors</a>
-        <a href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder">Request Pitch Deck</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
   <header>
-    <div class="wrap hero">
-      <div>
-        <div class="kicker">You Won’t Forget</div>
-        <h1>Patented location intelligence that reminds you what you need, exactly where you can buy it.</h1>
-        <p class="lead">
-          WEminder plugs into Apple and Google’s reminder ecosystems. You say what you need once — “Hey Siri remind me to get light bulbs” — and we take it further.
-          We’ll tap you when you're near (or inside) a store that actually sells it.
-        </p>
-        <div class="cta-row">
-          <a class="cta-btn" href="mailto:michael@weminder.me?subject=Early%20Access%20Request%20–%20WEminder">Request Early Access</a>
-          <a class="pill-btn" href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder">Request Pitch Deck</a>
-          <a class="pill-btn" href="#investors">Investor Info</a>
-        </div>
-        <div class="legal-hint">
-          WEminder is preparing a Regulation Crowdfunding (Reg CF) raise of up to $5M to complete platform integration with Apple and Google and accelerate go-to-market growth.
-        </div>
-      </div>
-
-      <div class="visual-card">
-        <div class="visual-top">
-          <div class="visual-eyebrow">Intelligent Proximity Detection</div>
-          <div class="visual-headline">
-            “Stores near me” becomes “Here’s the store that has what you already said you need.”
-          </div>
-          <div class="visual-copy">
-            Our patented system knows when you're near stores that sell your items. Speak into your phone with Siri or Google Assistant,
-            and we take it one step further. We remind you when you're near or in a store that carries the items on your list — with zero setup.
-          </div>
-        </div>
-        <div class="visual-image step-image">
-          <img src="proximity-tech.png" class="enlargeable" data-full="proximity-tech.png" alt="Phone UI showing patented proximity-based reminder intelligence">
-        </div>
-      </div>
-    </div>
+    <img src="assets/weminder-logo.png" alt="WEminder Logo" />
+    <h1>Never Forget the Things You Need</h1>
+    <h2>Smart reminders that trigger where and when they matter most.</h2>
+    <a href="#learn-more" class="cta-button">Learn More</a>
   </header>
 
-  <!-- HOW IT WORKS -->
-  <section class="wrap" id="how">
-    <h2>How it works</h2>
+  <section id="learn-more">
+    <h2>How It Works</h2>
+    <p>WEminder listens to your everyday conversations and helps you capture needs, organize them into shared lists, and remind you when you’re near a relevant store — so you never forget the things that matter most.</p>
 
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">1</div>
-          <div>Say it once</div>
-        </div>
-        <div class="step-copy">
-          “Remind me to get paper plates and dog treats.” WEminder syncs that intent, tied to real-world products — without you manually building a list.
-        </div>
-        <div class="step-image">
-          <img src="categories.png" class="enlargeable" data-full="categories.png" alt="Automatic categorization of shopping / household needs">
-        </div>
-        <div class="step-label">Automatic understanding of what you need</div>
+    <div class="features">
+      <div class="feature">
+        <img src="assets/icon1.png" alt="Voice Capture" />
+        <h3>Speak Naturally</h3>
+        <p>Just say what you need — “We’re out of milk” — and WEminder adds it automatically to your list.</p>
       </div>
-
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">2</div>
-          <div>We map the real world</div>
-        </div>
-        <div class="step-copy">
-          Our engine maps your needs to actual retailers — grocery, big box, specialty, pet, golf, hardware.
-          Not just “a store,” the right store, right now.
-        </div>
-        <div class="step-image">
-          <img src="brand-coupons.png" class="enlargeable" data-full="brand-coupons.png" alt="Context-aware brand offers and coupons at the point of intent">
-        </div>
-        <div class="step-label">Context-aware offers (opt-in)</div>
+      <div class="feature">
+        <img src="assets/icon2.png" alt="Smart Location Alerts" />
+        <h3>Smart Location Alerts</h3>
+        <p>Get notified when you’re near a store where your item is available — never miss a chance to grab it.</p>
       </div>
-
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">3</div>
-          <div>Your world syncs</div>
-        </div>
-        <div class="step-copy">
-          Shared lists. Calendar-aware reminders. Phone-to-phone coordination.
-          Everyone sees what still needs to be picked up — and who’s already grabbed it.
-        </div>
-        <div class="step-image">
-          <img src="p2p-sharing.png" class="enlargeable" data-full="p2p-sharing.png" alt="Shared lists between household members">
-        </div>
-        <div class="step-label">Live shared lists</div>
-      </div>
-    </div>
-
-    <div class="steps" style="margin-top:24px">
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">4</div>
-          <div>On your calendar</div>
-        </div>
-        <div class="step-copy">
-          Need party supplies before Saturday at 3pm? WEminder understands timeline and urgency — not just the item.
-        </div>
-        <div class="step-image">
-          <img src="calendar-ai.png" class="enlargeable" data-full="calendar-ai.png" alt="Calendar and AI-driven timing awareness">
-        </div>
-        <div class="step-label">Time-sensitive errands</div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">5</div>
-          <div>Phone-to-phone handoff</div>
-        </div>
-        <div class="step-copy">
-          Hand off parts of the list in real time. “I’ll get party plates if you grab batteries and candles.”
-        </div>
-        <div class="step-image">
-          <img src="phone-to-phone.png" class="enlargeable" data-full="phone-to-phone.png" alt="Passing responsibility and tracking status across two phones">
-        </div>
-        <div class="step-label">Coordinated pickup</div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-head">
-          <div class="step-num">6</div>
-          <div>You get tapped at the perfect moment</div>
-        </div>
-        <div class="step-copy">
-          Drive past a store? You get a nudge: “You’re near Target. They have plates, napkins, candles, cups — all from Party List.”
-        </div>
-        <div class="step-image">
-          <img src="proximity-tech.png" class="enlargeable" data-full="proximity-tech.png" alt="Location trigger and in-store reminder right as you arrive">
-        </div>
-        <div class="step-label">Right place, right time</div>
+      <div class="feature">
+        <img src="assets/icon3.png" alt="Shared Lists" />
+        <h3>Shared Lists</h3>
+        <p>Collaborate with family or friends — shared lists update in real time, keeping everyone on the same page.</p>
       </div>
     </div>
   </section>
 
-  <!-- INVESTOR SECTION -->
-  <section class="wrap" id="investors">
-    <h2>For Investors &amp; Partners</h2>
+  <section>
+    <h2>For Shoppers, Families & Brands</h2>
+    <p>WEminder connects everyday consumers with brands, offers, and deals that match their real-time needs — creating a smarter, more sustainable shopping ecosystem for everyone.</p>
+  </section>
 
-    <div class="investor-grid">
-      <div class="invest-card">
-        <h3>Patented Core</h3>
-        <p>
-          Granted patent covering our location-based reminder & in-store trigger architecture across everyday shopping, not just grocery.
-        </p>
-      </div>
-
-      <div class="invest-card">
-        <h3>Capital Plan</h3>
-        <p>
-          We’re preparing a Regulation Crowdfunding (Reg CF) raise of up to $5M to complete platform integration with Apple and Google and accelerate go-to-market growth.
-        </p>
-      </div>
-
-      <div class="invest-card">
-        <h3>Monetization</h3>
-        <p>
-          Two lanes: (1) Convenience subscription for consumers, and (2) opt-in, context-aware brand offers triggered in real purchase moments.
-        </p>
-      </div>
-    </div>
-
-    <div class="cta-row-bottom">
-      <a class="cta-btn" href="mailto:info@weminder.me?subject=WEminder%20Investor%20Inquiry">Contact Us</a>
-     <a class="pill-btn" href="mailto:info@weminder.me?subject=WEminder%20Pitch%20Deck%20Request">Request Pitch Deck</a>
-
-    <div class="legal-hint" style="max-width:700px">
-      Reg CF raise will be executed through a registered intermediary. This page is informational only and not a solicitation to invest.
-    </div>
+  <section>
+    <h2>Investors & Partners</h2>
+    <p>WEminder’s patented location-based reminder system is now entering its next growth phase. We’re seeking strategic partners and investors to help scale the platform and bring WEminder to households nationwide.</p>
+    <a href="mailto:info@weminder.me" class="cta-button">Contact Us</a>
   </section>
 
   <footer>
-    © <span id="y"></span> WEminder • <a href="mailto:michael@weminder.me">michael@weminder.me</a>
+    <p>© 2025 WEminder. All rights reserved.</p>
+    <p><a href="mailto:info@weminder.me">info@weminder.me</a></p>
   </footer>
-
-  <!-- LIGHTBOX OVERLAY (NEW) -->
-  <div id="lightboxOverlay">
-    <div style="text-align:center;">
-      <img id="lightboxImg" src="" alt="Preview">
-      <div class="hint">Tap anywhere to close</div>
-    </div>
-  </div>
-
-  <!-- JS for lightbox (NEW) -->
-  <script>
-    // update footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // lightbox logic
-    const overlay = document.getElementById('lightboxOverlay');
-    const overlayImg = document.getElementById('lightboxImg');
-
-    function openLightbox(src){
-      overlayImg.src = src;
-      overlay.style.display = 'flex';
-    }
-    function closeLightbox(){
-      overlay.style.display = 'none';
-      overlayImg.src = '';
-    }
-
-    // click any enlargeable image to open
-    document.querySelectorAll('.enlargeable').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        const fullSrc = img.getAttribute('data-full') || img.src;
-        openLightbox(fullSrc);
-      });
-    });
-
-    // click overlay to close
-    overlay.addEventListener('click', closeLightbox);
-  </script>
 </body>
 </html>
