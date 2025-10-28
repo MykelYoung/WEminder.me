@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;WEminder – You Won't Forget&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="WEminder is a patented, location-aware reminder platform that works with Apple and Google to remind you what you need, exactly where you can buy it." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="theme-color" content="#0a0b0f" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg-main:#0a0b0f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg-grad:#1a1d2b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--card:#151826;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--line:#2a2f45;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#f4f6ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#a5aec9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--accent:#7aa5ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cta-bg:#00d28f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cta-bg-hover:#00a973;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box;margin:0;padding:0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(800px 500px at 80% 0%, rgba(64,106,255,.28) 0%, rgba(0,0,0,0) 70%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(600px 400px at 20% 20%, rgba(0,210,143,.18) 0%, rgba(0,0,0,0) 70%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(160deg,var(--bg-main) 0%,var(--bg-grad) 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>-webkit-font-smoothing:antialiased;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{text-decoration:none;color:var(--accent)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>img{max-width:100%;height:auto;display:block;border-radius:12px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{max-width:1200px;margin:0 auto;padding:0 20px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* HERO */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:64px 0 48px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:minmax(0,1fr) minmax(0,480px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:32px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:900px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kicker{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.2em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(1.9rem,2.2vw,2.8rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lead{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:1.05rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:550px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-row{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--cta-bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#001c12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 16px 32px rgba(0,210,143,.28);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-btn:hover{background:var(--cta-bg-hover)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill-btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(21,24,38,.4);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:500;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.legal-hint{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:520px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* HERO RIGHT SIDE CARD */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(21,24,38,.6);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 30px 80px rgba(0,0,0,.8);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-top{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px 16px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:radial-gradient(circle at 0% 0%, rgba(122,165,255,.15) 0%, rgba(0,0,0,0) 70%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-eyebrow{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.15em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-headline{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-copy{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.4;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visual-image{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:radial-gradient(circle at 80% 20%, rgba(0,210,143,.12) 0%, rgba(0,0,0,0) 70%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* "HOW IT WORKS" SECTION */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>section{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:48px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.steps{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,minmax(0,1fr));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:900px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.steps{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(21,24,38,.4);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 24px 60px rgba(0,0,0,.6);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-head{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-num{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:#1e233a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid #3a405f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:4px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#cfd8ff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-copy{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-image{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:#0f111a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 16px 40px rgba(0,0,0,.8);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-label{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* INVESTOR SECTION */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.investor-grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,minmax(0,1fr));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:900px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.investor-grid{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.invest-card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(21,24,38,.4);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 24px 60px rgba(0,0,0,.6);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.invest-card h3{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.invest-card p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-row-bottom{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:32px 20px 48px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer a{color:var(--accent);text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- HERO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wrap hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- LEFT COLUMN TEXT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="kicker"&gt;You Won’t Forget&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Patented location intelligence that reminds you what you need, exactly where you can buy it.&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="lead"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>WEminder plugs into Apple and Google’s reminder ecosystems. You say what you need once — “Hey Siri remind me to get light bulbs” — and we take it further.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>We’ll tap you when you're near (or inside) a store that actually sells it.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cta-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="cta-btn" href="mailto:michael@weminder.me?subject=Early%20Access%20Request%20–%20WEminder"&gt;Request Early Access&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="pill-btn" href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder"&gt;Request Pitch Deck&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="pill-btn" href="#investors"&gt;Investor Info&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="legal-hint"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Patent granted. Regulation Crowdfunding raise (up to $5M) in progress. Apple and Google ecosystem names belong to their respective owners.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- RIGHT COLUMN VISUAL FEATURE CARD --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="visual-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="visual-top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="visual-eyebrow"&gt;Intelligent Proximity Detection&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="visual-headline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>“Stores near me” becomes “Here’s the store that has what you already said you need.”</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="visual-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Our patented system knows when you're near stores that sell your items. Speak into your phone with Siri or Google Assistant,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>and we take it one step further. We remind you when you're near or in a store that carries the items on your list — with zero setup.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="visual-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="proximity-tech.png" alt="Phone UI showing patented proximity-based reminder intelligence"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- HOW IT WORKS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="wrap" id="how"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;How it works&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="steps"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- STEP 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;1&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;Say it once&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>“Remind me to get paper plates and dog treats.” WEminder syncs that intent, tied to real-world products — without you manually building a list.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="categories.png" alt="Automatic categorization of shopping / household needs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Automatic understanding of what you need&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- STEP 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;2&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;We map the real world&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Our engine maps your needs to actual retailers — grocery, big box, specialty, pet, golf, hardware.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>Not just “a store,” the right store, right now.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="brand-coupons.png" alt="Context-aware brand offers and coupons at the point of intent"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Context-aware offers (opt-in)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- STEP 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;Your world syncs&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Shared lists. Calendar-aware reminders. Phone-to-phone coordination.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Everyone sees what still needs to be picked up — and who’s already grabbed it.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="p2p-sharing.png" alt="Shared lists between household members"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Live shared lists&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- extra row of supporting visuals below steps --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="steps" style="margin-top:24px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;4&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;On your calendar&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Need party supplies before Saturday at 3pm? WEminder understands timeline and urgency — not just the item.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="calendar-ai.png" alt="Calendar and AI-driven timing awareness"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Time-sensitive errands&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;5&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;Phone-to-phone handoff&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Hand off parts of the list in real time. “I’ll get party plates if you grab batteries and candles.”</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="phone-to-phone.png" alt="Passing responsibility and tracking status across two phones"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Coordinated pickup&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step-num"&gt;6&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;You get tapped at the perfect moment&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Drive past a store? You get a nudge: “You’re near Target. They have plates, napkins, candles, cups — all from Party List.”</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-image"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="proximity-tech.png" alt="Location trigger and in-store reminder right as you arrive"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step-label"&gt;Right place, right time&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- INVESTOR SECTION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="wrap" id="investors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;For Investors &amp;amp; Partners&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="investor-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="invest-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Patented Core&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Granted patent covering our location-based reminder &amp; in-store trigger architecture across everyday shopping, not just grocery.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="invest-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Capital Plan&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>We’re preparing a Regulation Crowdfunding raise (up to $5M) to finish Apple / Google integration, launch MVP, and scale user acquisition.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="invest-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Monetization&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Two lanes: (1) Convenience subscription for consumers, and (2) opt-in, context-aware brand offers triggered in real purchase moments.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cta-row-bottom"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="cta-btn" href="mailto:michael@weminder.me?subject=Investor%20Inquiry%20–%20WEminder"&gt;Contact Michael&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="pill-btn" href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder"&gt;Request Pitch Deck&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="legal-hint"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Reg CF raise will be executed through a registered intermediary.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>This page is informational only and not a solicitation to invest.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>© &lt;span id="y"&gt;&lt;/span&gt; WEminder • &lt;a href="privacy.html"&gt;Privacy&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('y').textContent = new Date().getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
