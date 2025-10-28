@@ -18,6 +18,7 @@
       --accent:#7aa5ff;
       --cta-bg:#00d28f;
       --cta-bg-hover:#00a973;
+      --overlay-bg:rgba(0,0,0,.8);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -32,15 +33,71 @@
     }
 
     a{text-decoration:none;color:var(--accent)}
-    img{max-width:100%;height:auto;display:block;border-radius:12px}
+    img{max-width:100%;height:auto;display:block;border-radius:12px;cursor:default}
 
     .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 
-    /* HERO */
+    /* ============= NAV BAR (NEW) ============= */
+    nav.site-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      background:rgba(10,11,15,.6);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      font-size:.9rem;
+    }
+    .nav-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-weight:600;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      line-height:1.2;
+    }
+    .brand .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--cta-bg);
+      box-shadow:0 0 8px var(--cta-bg);
+    }
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:500;
+      border:1px solid transparent;
+      border-radius:999px;
+      padding:6px 10px;
+      line-height:1.2;
+    }
+    .nav-links a:hover{
+      border-color:var(--line);
+      background:rgba(21,24,38,.4);
+    }
+
+    /* push the hero down so it doesn't hide under fixed nav */
     header{
-      padding:64px 0 48px;
+      padding:112px 0 48px; /* was 64px top, now 112px to make room for nav */
       border-bottom:1px solid var(--line);
     }
+
+    /* ============= HERO ============= */
     .hero{
       display:grid;
       grid-template-columns:minmax(0,1fr) minmax(0,480px);
@@ -111,7 +168,6 @@
       max-width:520px;
     }
 
-    /* HERO RIGHT SIDE CARD */
     .visual-card{
       background:rgba(21,24,38,.6);
       border:1px solid var(--line);
@@ -152,7 +208,7 @@
       border-top:1px solid var(--line);
     }
 
-    /* "HOW IT WORKS" SECTION */
+    /* ============= SECTIONS ============= */
     section{
       padding:48px 0;
       border-bottom:1px solid var(--line);
@@ -214,6 +270,7 @@
       border-radius:12px;
       padding:10px;
       box-shadow:0 16px 40px rgba(0,0,0,.8);
+      cursor:zoom-in; /* NEW: visually hint that you can click */
     }
 
     .step-label{
@@ -223,7 +280,6 @@
       margin-top:6px;
     }
 
-    /* INVESTOR SECTION */
     .investor-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -270,36 +326,71 @@
       padding:32px 20px 48px;
     }
     footer a{color:var(--accent);text-decoration:none}
+
+    /* ============= LIGHTBOX (NEW) ============= */
+    #lightboxOverlay{
+      position:fixed;
+      z-index:2000;
+      left:0;top:0;right:0;bottom:0;
+      background:var(--overlay-bg);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    #lightboxOverlay img{
+      max-width:90vw;
+      max-height:90vh;
+      border-radius:16px;
+      box-shadow:0 40px 120px rgba(0,0,0,.9);
+      border:1px solid var(--line);
+      background:#000;
+    }
+    #lightboxOverlay .hint{
+      color:var(--muted);
+      font-size:.7rem;
+      margin-top:12px;
+      text-align:center;
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAV BAR (NEW) -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>WEminder</div>
+      </div>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#investors">Investors</a>
+        <a href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder">Request Pitch Deck</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <header>
     <div class="wrap hero">
-      <!-- LEFT COLUMN TEXT -->
       <div>
         <div class="kicker">You Won’t Forget</div>
-
         <h1>Patented location intelligence that reminds you what you need, exactly where you can buy it.</h1>
-
         <p class="lead">
           WEminder plugs into Apple and Google’s reminder ecosystems. You say what you need once — “Hey Siri remind me to get light bulbs” — and we take it further.
           We’ll tap you when you're near (or inside) a store that actually sells it.
         </p>
-
         <div class="cta-row">
           <a class="cta-btn" href="mailto:michael@weminder.me?subject=Early%20Access%20Request%20–%20WEminder">Request Early Access</a>
           <a class="pill-btn" href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder">Request Pitch Deck</a>
           <a class="pill-btn" href="#investors">Investor Info</a>
         </div>
-
         <div class="legal-hint">
-          Patent granted. Regulation Crowdfunding raise (up to $5M) in progress. Apple and Google ecosystem names belong to their respective owners.
+          WEminder is preparing a Regulation Crowdfunding (Reg CF) raise of up to $5M to complete platform integration with Apple and Google and accelerate go-to-market growth.
         </div>
       </div>
 
-      <!-- RIGHT COLUMN VISUAL FEATURE CARD -->
       <div class="visual-card">
         <div class="visual-top">
           <div class="visual-eyebrow">Intelligent Proximity Detection</div>
@@ -311,8 +402,8 @@
             and we take it one step further. We remind you when you're near or in a store that carries the items on your list — with zero setup.
           </div>
         </div>
-        <div class="visual-image">
-          <img src="proximity-tech.png" alt="Phone UI showing patented proximity-based reminder intelligence">
+        <div class="visual-image step-image">
+          <img src="proximity-tech.png" class="enlargeable" data-full="proximity-tech.png" alt="Phone UI showing patented proximity-based reminder intelligence">
         </div>
       </div>
     </div>
@@ -323,8 +414,6 @@
     <h2>How it works</h2>
 
     <div class="steps">
-
-      <!-- STEP 1 -->
       <div class="step-card">
         <div class="step-head">
           <div class="step-num">1</div>
@@ -333,31 +422,27 @@
         <div class="step-copy">
           “Remind me to get paper plates and dog treats.” WEminder syncs that intent, tied to real-world products — without you manually building a list.
         </div>
-
         <div class="step-image">
-          <img src="categories.png" alt="Automatic categorization of shopping / household needs">
+          <img src="categories.png" class="enlargeable" data-full="categories.png" alt="Automatic categorization of shopping / household needs">
         </div>
         <div class="step-label">Automatic understanding of what you need</div>
       </div>
 
-      <!-- STEP 2 -->
       <div class="step-card">
         <div class="step-head">
           <div class="step-num">2</div>
           <div>We map the real world</div>
         </div>
         <div class="step-copy">
-          Our engine maps your needs to actual retailers — grocery, big box, specialty, pet, golf, hardware. 
+          Our engine maps your needs to actual retailers — grocery, big box, specialty, pet, golf, hardware.
           Not just “a store,” the right store, right now.
         </div>
-
         <div class="step-image">
-          <img src="brand-coupons.png" alt="Context-aware brand offers and coupons at the point of intent">
+          <img src="brand-coupons.png" class="enlargeable" data-full="brand-coupons.png" alt="Context-aware brand offers and coupons at the point of intent">
         </div>
         <div class="step-label">Context-aware offers (opt-in)</div>
       </div>
 
-      <!-- STEP 3 -->
       <div class="step-card">
         <div class="step-head">
           <div class="step-num">3</div>
@@ -367,16 +452,13 @@
           Shared lists. Calendar-aware reminders. Phone-to-phone coordination.
           Everyone sees what still needs to be picked up — and who’s already grabbed it.
         </div>
-
         <div class="step-image">
-          <img src="p2p-sharing.png" alt="Shared lists between household members">
+          <img src="p2p-sharing.png" class="enlargeable" data-full="p2p-sharing.png" alt="Shared lists between household members">
         </div>
         <div class="step-label">Live shared lists</div>
       </div>
-
     </div>
 
-    <!-- extra row of supporting visuals below steps -->
     <div class="steps" style="margin-top:24px">
       <div class="step-card">
         <div class="step-head">
@@ -387,7 +469,7 @@
           Need party supplies before Saturday at 3pm? WEminder understands timeline and urgency — not just the item.
         </div>
         <div class="step-image">
-          <img src="calendar-ai.png" alt="Calendar and AI-driven timing awareness">
+          <img src="calendar-ai.png" class="enlargeable" data-full="calendar-ai.png" alt="Calendar and AI-driven timing awareness">
         </div>
         <div class="step-label">Time-sensitive errands</div>
       </div>
@@ -401,7 +483,7 @@
           Hand off parts of the list in real time. “I’ll get party plates if you grab batteries and candles.”
         </div>
         <div class="step-image">
-          <img src="phone-to-phone.png" alt="Passing responsibility and tracking status across two phones">
+          <img src="phone-to-phone.png" class="enlargeable" data-full="phone-to-phone.png" alt="Passing responsibility and tracking status across two phones">
         </div>
         <div class="step-label">Coordinated pickup</div>
       </div>
@@ -415,7 +497,7 @@
           Drive past a store? You get a nudge: “You’re near Target. They have plates, napkins, candles, cups — all from Party List.”
         </div>
         <div class="step-image">
-          <img src="proximity-tech.png" alt="Location trigger and in-store reminder right as you arrive">
+          <img src="proximity-tech.png" class="enlargeable" data-full="proximity-tech.png" alt="Location trigger and in-store reminder right as you arrive">
         </div>
         <div class="step-label">Right place, right time</div>
       </div>
@@ -437,7 +519,7 @@
       <div class="invest-card">
         <h3>Capital Plan</h3>
         <p>
-          We’re preparing a Regulation Crowdfunding raise (up to $5M) to finish Apple / Google integration, launch MVP, and scale user acquisition.
+          We’re preparing a Regulation Crowdfunding (Reg CF) raise of up to $5M to complete platform integration with Apple and Google and accelerate go-to-market growth.
         </p>
       </div>
 
@@ -454,18 +536,52 @@
       <a class="pill-btn" href="mailto:michael@weminder.me?subject=Pitch%20Deck%20Request%20–%20WEminder">Request Pitch Deck</a>
     </div>
 
-    <div class="legal-hint">
-      Reg CF raise will be executed through a registered intermediary.
-      This page is informational only and not a solicitation to invest.
+    <div class="legal-hint" style="max-width:700px">
+      Reg CF raise will be executed through a registered intermediary. This page is informational only and not a solicitation to invest.
     </div>
   </section>
 
   <footer>
-    © <span id="y"></span> WEminder • <a href="privacy.html">Privacy</a>
+    © <span id="y"></span> WEminder • <a href="mailto:michael@weminder.me">michael@weminder.me</a>
   </footer>
 
+  <!-- LIGHTBOX OVERLAY (NEW) -->
+  <div id="lightboxOverlay">
+    <div style="text-align:center;">
+      <img id="lightboxImg" src="" alt="Preview">
+      <div class="hint">Tap anywhere to close</div>
+    </div>
+  </div>
+
+  <!-- JS for lightbox (NEW) -->
   <script>
+    // update footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // lightbox logic
+    const overlay = document.getElementById('lightboxOverlay');
+    const overlayImg = document.getElementById('lightboxImg');
+
+    function openLightbox(src){
+      overlayImg.src = src;
+      overlay.style.display = 'flex';
+    }
+    function closeLightbox(){
+      overlay.style.display = 'none';
+      overlayImg.src = '';
+    }
+
+    // click any enlargeable image to open
+    document.querySelectorAll('.enlargeable').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        const fullSrc = img.getAttribute('data-full') || img.src;
+        openLightbox(fullSrc);
+      });
+    });
+
+    // click overlay to close
+    overlay.addEventListener('click', closeLightbox);
   </script>
 </body>
 </html>
