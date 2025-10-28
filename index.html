@@ -26,16 +26,17 @@
   <meta name="twitter:creator" content="@WEminderApp" />
 
   <style>
+    /* FORCE DARK MODE FOR TEST */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #333;
-      background-color: #fff;
+      background-color: #121212;
+      color: #e0e0e0;
     }
     header {
       text-align: center;
       padding: 60px 20px 40px;
-      background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+      background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
     }
     header img {
       height: 80px;
@@ -45,12 +46,12 @@
       font-size: 2.4em;
       font-weight: 700;
       margin-bottom: 10px;
-      color: #222;
+      color: #e0e0e0;
     }
     h2 {
       font-size: 1.6em;
       font-weight: 500;
-      color: #444;
+      color: #ccc;
       margin-bottom: 20px;
     }
     p {
@@ -58,11 +59,11 @@
       line-height: 1.6;
       margin: 0 auto 20px;
       max-width: 700px;
-      color: #555;
+      color: #bbb;
     }
     .cta-button {
       display: inline-block;
-      background-color: #007bff;
+      background-color: #2196f3;
       color: #fff;
       padding: 14px 28px;
       border-radius: 6px;
@@ -72,15 +73,16 @@
       transition: background-color 0.2s ease;
     }
     .cta-button:hover {
-      background-color: #0056b3;
+      background-color: #1976d2;
     }
     section {
       padding: 60px 20px;
       text-align: center;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #333;
+      background-color: #1a1a1a;
     }
-    section:nth-child(even) {
-      background-color: #f9fafc;
+    section.alt {
+      background-color: #181818;
     }
     .features {
       display: flex;
@@ -92,68 +94,46 @@
     .feature {
       max-width: 260px;
     }
-    .feature img {
+    .feature-icon {
       width: 80px;
       height: 80px;
-      margin-bottom: 15px;
+      margin: 0 auto 15px;
+      border-radius: 16px;
+      background-color: #2a2a2a;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 600;
+      color: #4da3ff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      color: #555;
-      background-color: #f6f8fb;
-      border-top: 1px solid #ddd;
+      color: #ccc;
+      background-color: #1c1c1c;
+      border-top: 1px solid #333;
     }
     footer a {
-      color: #007bff;
+      color: #4da3ff;
       text-decoration: none;
     }
     footer a:hover {
       text-decoration: underline;
-    }
-
-    /* --- DARK MODE --- */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
-      header {
-        background: linear-gradient(180deg, #1c1c1c 0%, #121212 100%);
-      }
-      h1, h2, p {
-        color: #e0e0e0;
-      }
-      section {
-        background-color: #1a1a1a;
-        border-top: 1px solid #333;
-      }
-      section:nth-child(even) {
-        background-color: #181818;
-      }
-      footer {
-        background-color: #1c1c1c;
-        color: #ccc;
-        border-top: 1px solid #333;
-      }
-      footer a {
-        color: #4da3ff;
-      }
-      .cta-button {
-        background-color: #2196f3;
-        color: #fff;
-      }
-      .cta-button:hover {
-        background-color: #1976d2;
-      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="assets/weminder-logo.png" alt="WEminder Logo" />
+    <!-- TEMP fallback if weminder-logo.png not loading -->
+    <div style="height:80px; width:80px; margin:0 auto 20px; border-radius:16px; background:#2a2a2a; border:1px solid #444; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:600; color:#4da3ff; font-family:system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;">
+      WE
+    </div>
+
     <h1>Never Forget the Things You Need</h1>
     <h2>Smart reminders that trigger where and when they matter most.</h2>
     <a href="#learn-more" class="cta-button">Learn More</a>
@@ -165,30 +145,30 @@
 
     <div class="features">
       <div class="feature">
-        <img src="assets/icon1.png" alt="Voice Capture" />
+        <div class="feature-icon">🎙</div>
         <h3>Speak Naturally</h3>
         <p>Just say what you need — “We’re out of milk” — and WEminder adds it automatically to your list.</p>
       </div>
       <div class="feature">
-        <img src="assets/icon2.png" alt="Smart Location Alerts" />
+        <div class="feature-icon">📍</div>
         <h3>Smart Location Alerts</h3>
         <p>Get notified when you’re near a store where your item is available — never miss a chance to grab it.</p>
       </div>
       <div class="feature">
-        <img src="assets/icon3.png" alt="Shared Lists" />
+        <div class="feature-icon">👨‍👩‍👧</div>
         <h3>Shared Lists</h3>
         <p>Collaborate with family or friends — shared lists update in real time, keeping everyone on the same page.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>For Shoppers, Families & Brands</h2>
+  <section class="alt">
+    <h2>For Shoppers, Families &amp; Brands</h2>
     <p>WEminder connects everyday consumers with brands, offers, and deals that match their real-time needs — creating a smarter, more sustainable shopping ecosystem for everyone.</p>
   </section>
 
   <section>
-    <h2>Investors & Partners</h2>
+    <h2>Investors &amp; Partners</h2>
     <p>WEminder’s patented location-based reminder system is now entering its next growth phase. We’re seeking strategic partners and investors to help scale the platform and bring WEminder to households nationwide.</p>
     <a href="mailto:info@weminder.me" class="cta-button">Contact Us</a>
   </section>
