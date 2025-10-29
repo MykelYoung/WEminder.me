@@ -10,9 +10,9 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta name="theme-color" content="#121212" />
 
-  <!-- Open Graph / Twitter preview -->
+  <!-- Social preview -->
   <meta property="og:title" content="WEminder | Smart Reminders for Everyday Life" />
-  <meta property="og:description" content="Never forget the things you need. WEminder organizes your lists and reminds you at the right place and time." />
+  <meta property="og:description" content="Never forget the things you need. WEminder organizes your lists and reminds you when and where to act." />
   <meta property="og:image" content="https://weminder.me/brand-coupons.png" />
   <meta property="og:url" content="https://weminder.me/" />
   <meta property="og:type" content="website" />
@@ -24,11 +24,10 @@
   <style>
     :root {
       --bg-dark: #121212;
-      --bg-card: #1c1c1c;
-      --border-subtle: #333;
       --text-main: #e0e0e0;
       --text-body: #bdbdbd;
       --blue: #2196f3;
+      --border: #333;
     }
 
     body {
@@ -36,46 +35,42 @@
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-body);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
 
-    /* NAVIGATION */
+    /* NAV */
     .nav-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 16px 20px;
-      background-color: var(--bg-card);
-      border-bottom: 1px solid var(--border-subtle);
+      background-color: #1c1c1c;
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     .brand {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--text-main);
+      font-weight: 600;
+      letter-spacing: -0.03em;
     }
     .brand-mark {
       background-color: var(--blue);
       color: #fff;
       border-radius: 8px;
       font-size: 0.8rem;
-      font-weight: 600;
-      line-height: 1;
+      font-weight: 700;
       padding: 6px 8px;
     }
     .nav-links a {
-      font-size: 0.9rem;
       color: var(--text-body);
       text-decoration: none;
       margin-left: 16px;
       font-weight: 500;
-      transition: color 0.2s ease;
     }
     .nav-links a:hover {
       color: var(--blue);
@@ -86,20 +81,20 @@
       text-align: center;
       padding: 80px 20px 60px;
       background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border);
     }
     .hero h1 {
       font-size: 2.4rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .hero h2 {
       font-size: 1.2rem;
       font-weight: 400;
       color: var(--text-body);
-      max-width: 700px;
-      margin: 0 auto 28px;
+      max-width: 720px;
+      margin: 0 auto 30px;
     }
     .cta-button {
       display: inline-block;
@@ -110,7 +105,6 @@
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      transition: background-color 0.2s ease;
     }
     .cta-button:hover {
       background-color: #1976d2;
@@ -120,11 +114,7 @@
     section.section-block {
       padding: 70px 20px;
       text-align: center;
-      border-bottom: 1px solid var(--border-subtle);
-      background-color: var(--bg-dark);
-    }
-    section.section-alt {
-      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border);
     }
     section.section-block h2 {
       font-size: 1.6rem;
@@ -133,72 +123,63 @@
       margin-bottom: 20px;
     }
     section.section-block p.lead {
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 40px;
       color: var(--text-body);
-      font-size: 1.05rem;
     }
 
-    /* FEATURES */
+    /* GRID */
     .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 48px;
-      max-width: 1100px;
+      justify-items: center;
+      max-width: 1000px;
       margin: 0 auto;
     }
-    .feature-card {
-      width: 300px;
+    .feature {
       text-align: center;
-      font-size: 0.95rem;
-      line-height: 1.45;
-      background-color: var(--bg-card);
-      padding: 24px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border-subtle);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      max-width: 300px;
     }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-    .feature-card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 16px;
-      border: 1px solid var(--border-subtle);
-      background-color: #1f1f1f;
-      object-fit: contain;
-      margin-bottom: 18px;
-    }
-    .feature-card h3 {
-      color: var(--text-main);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 8px 0;
-    }
-    .feature-card p {
-      margin: 0;
-      color: var(--text-body);
-      font-size: 0.95rem;
-    }
-    .feature-card a {
+    .feature a {
       text-decoration: none;
       color: inherit;
     }
-
-    /* LARGE PROMO IMAGE */
-    .promo-image-wrap {
-      margin-top: 32px;
+    .feature img {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      object-fit: contain;
+      background-color: #1f1f1f;
+      transition: transform 0.2s ease;
     }
-    .promo-image-wrap img {
-      max-width: 400px;
+    .feature img:hover {
+      transform: scale(1.05);
+    }
+    .feature h3 {
+      color: var(--text-main);
+      margin-top: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .feature p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    /* BRAND IMAGE */
+    .promo {
+      margin-top: 40px;
+    }
+    .promo img {
       width: 100%;
+      max-width: 420px;
       height: auto;
-      border-radius: 20px;
-      border: 1px solid var(--border-subtle);
-      background: #1f1f1f;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background-color: #1f1f1f;
     }
 
     /* FOOTER */
@@ -207,9 +188,8 @@
       padding: 30px 20px 40px;
       font-size: 14px;
       color: var(--text-body);
-      background-color: var(--bg-card);
-      border-top: 1px solid var(--border-subtle);
-      line-height: 1.5;
+      background-color: #1c1c1c;
+      border-top: 1px solid var(--border);
     }
     footer.site-footer a {
       color: var(--blue);
@@ -220,12 +200,9 @@
     }
 
     @media (max-width: 768px) {
-      .feature-card {
-        width: 90%;
-      }
-      .feature-card img {
-        width: 100px;
-        height: 100px;
+      .feature img {
+        width: 140px;
+        height: 140px;
       }
     }
   </style>
@@ -257,21 +234,29 @@
   <section class="section-block" id="how-it-works">
     <h2>How It Works</h2>
     <p class="lead">
-      WEminder listens to everyday conversation and automatically captures what you need, organizes it into shared lists, and reminds you when you’re near a store that sells it — so you never forget the things that matter most.
+      WEminder listens to what you say you need, organizes it into shared lists, and reminds you when you’re near a store that sells it — so you never forget the things that matter most.
     </p>
     <div class="features">
-      <div class="feature-card">
-        <a href="calendar-ai.png" target="_blank"><img src="calendar-ai.png" alt="Voice capture and AI organization" /></a>
+      <div class="feature">
+        <a href="calendar-ai.png" target="_blank">
+          <img src="calendar-ai.png" alt="Voice capture and AI organization" />
+        </a>
         <h3>Speak Naturally</h3>
-        <p>Just say what you need — “We’re out of milk.” WEminder adds it automatically to your list.</p>
+        <p>Just say “We’re out of milk” and WEminder adds it automatically to your list.</p>
       </div>
-      <div class="feature-card">
-        <a href="proximity-tech.png" target="_blank"><img src="proximity-tech.png" alt="Proximity-based smart reminders" /></a>
+
+      <div class="feature">
+        <a href="proximity-tech.png" target="_blank">
+          <img src="proximity-tech.png" alt="Proximity-based smart reminders" />
+        </a>
         <h3>Smart Location Alerts</h3>
-        <p>Get a nudge when you’re near a store that carries your items — right place, right moment.</p>
+        <p>Get a nudge when you’re near a store that carries your items.</p>
       </div>
-      <div class="feature-card">
-        <a href="p2p-sharing.png" target="_blank"><img src="p2p-sharing.png" alt="Shared lists and syncing" /></a>
+
+      <div class="feature">
+        <a href="p2p-sharing.png" target="_blank">
+          <img src="p2p-sharing.png" alt="Shared lists and syncing" />
+        </a>
         <h3>Shared Lists</h3>
         <p>Collaborate with family or friends — lists update instantly so everyone’s in sync.</p>
       </div>
@@ -279,13 +264,15 @@
   </section>
 
   <!-- BRANDS -->
-  <section class="section-block section-alt" id="for-brands">
+  <section class="section-block" id="for-brands">
     <h2>For Shoppers, Families &amp; Brands</h2>
     <p class="lead">
       WEminder connects real shopper intent (“We need dog treats”) with brand offers and nearby availability. Families find what they need, and brands reach the right people at the right time.
     </p>
-    <div class="promo-image-wrap">
-      <a href="brand-coupons.png" target="_blank"><img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" /></a>
+    <div class="promo">
+      <a href="brand-coupons.png" target="_blank">
+        <img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" />
+      </a>
     </div>
   </section>
 
