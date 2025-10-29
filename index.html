@@ -28,6 +28,7 @@
       --text-body: #bdbdbd;
       --blue: #2196f3;
       --border: #333;
+      --tile-bg: #1f1f1f;
     }
 
     body {
@@ -128,58 +129,54 @@
       color: var(--text-body);
     }
 
-    /* GRID */
+    /* 2x2 GRID */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 48px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 60px;
       justify-items: center;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
     }
+
     .feature {
       text-align: center;
-      max-width: 300px;
+      max-width: 320px;
     }
+
     .feature a {
       text-decoration: none;
       color: inherit;
+      display: inline-block;
     }
+
     .feature img {
       width: 160px;
       height: 160px;
       border-radius: 16px;
       border: 1px solid var(--border);
       object-fit: contain;
-      background-color: #1f1f1f;
+      background-color: var(--tile-bg);
       transition: transform 0.2s ease;
+      display: block;
+      margin: 0 auto;
     }
+
     .feature img:hover {
       transform: scale(1.05);
     }
+
     .feature h3 {
       color: var(--text-main);
       margin-top: 16px;
       font-size: 1.1rem;
       font-weight: 600;
     }
+
     .feature p {
       color: var(--text-body);
       font-size: 0.95rem;
       margin-top: 8px;
-    }
-
-    /* BRAND IMAGE */
-    .promo {
-      margin-top: 40px;
-    }
-    .promo img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background-color: #1f1f1f;
     }
 
     /* FOOTER */
@@ -200,6 +197,9 @@
     }
 
     @media (max-width: 768px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
       .feature img {
         width: 140px;
         height: 140px;
@@ -217,7 +217,6 @@
     </div>
     <div class="nav-links">
       <a href="#how-it-works">How it works</a>
-      <a href="#for-brands">Brands</a>
       <a href="#investors">Investors</a>
       <a href="mailto:info@weminder.me">Contact</a>
     </div>
@@ -230,12 +229,13 @@
     <a href="#investors" class="cta-button">Learn More</a>
   </header>
 
-  <!-- HOW IT WORKS -->
+  <!-- HOW IT WORKS / FEATURES -->
   <section class="section-block" id="how-it-works">
     <h2>How It Works</h2>
     <p class="lead">
       WEminder listens to what you say you need, organizes it into shared lists, and reminds you when you’re near a store that sells it — so you never forget the things that matter most.
     </p>
+
     <div class="features">
       <div class="feature">
         <a href="calendar-ai.png" target="_blank">
@@ -260,19 +260,14 @@
         <h3>Shared Lists</h3>
         <p>Collaborate with family or friends — lists update instantly so everyone’s in sync.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- BRANDS -->
-  <section class="section-block" id="for-brands">
-    <h2>For Shoppers, Families &amp; Brands</h2>
-    <p class="lead">
-      WEminder connects real shopper intent (“We need dog treats”) with brand offers and nearby availability. Families find what they need, and brands reach the right people at the right time.
-    </p>
-    <div class="promo">
-      <a href="brand-coupons.png" target="_blank">
-        <img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" />
-      </a>
+      <div class="feature">
+        <a href="brand-coupons.png" target="_blank">
+          <img src="brand-coupons.png" alt="Brand coupons and offers in WEminder" />
+        </a>
+        <h3>Exclusive Brand Offers</h3>
+        <p>See relevant deals — right when you’re actually able to buy.</p>
+      </div>
     </div>
   </section>
 
